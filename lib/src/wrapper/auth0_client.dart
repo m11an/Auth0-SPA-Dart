@@ -58,8 +58,12 @@ class Auth0Client {
   }
 
   Future<void> logoutWithRedirect({String redirectUri = ''}) async {
-    return await promiseToFuture(_client.logout(
-    ));
+    return await promiseToFuture(_client.logout());
+  }
+
+  Future<void> getUser() async {
+    final response = await promiseToFuture(_client.getUser());
+    
   }
 }
 
@@ -69,4 +73,15 @@ class TokenResponse {
   final int? expiresIn;
 
   TokenResponse({this.accessToken, this.idToken, this.expiresIn});
+}
+
+class Auth0User {
+  final String? email;
+  final String? username;
+  final String? userId;
+  final String? phoneNum;
+  final String? createdAt;
+
+  Auth0User(
+      {this.email, this.username, this.userId, this.phoneNum, this.createdAt});
 }
