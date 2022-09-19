@@ -1,7 +1,5 @@
 import 'dart:js_util';
 
-import 'package:js/js.dart';
-
 import '../interop/auth0_client.dart' as interop;
 
 class Auth0Client {
@@ -57,6 +55,11 @@ class Auth0Client {
   Future<String?> loginWithRedirect({String redirectUri = ''}) async {
     return await promiseToFuture(_client.loginWithRedirect(
         interop.RedirectLoginOptions(redirect_uri: redirectUri)));
+  }
+
+  Future<void> logoutWithRedirect({String redirectUri = ''}) async {
+    return await promiseToFuture(_client.logout(
+    ));
   }
 }
 
