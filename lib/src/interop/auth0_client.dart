@@ -19,7 +19,6 @@ class Auth0Client {
   external isAuthenticated();
   external loginWithPopup(LoginWithPopupOptions options);
   external loginWithRedirect(RedirectLoginOptions options);
-  external logout();
   external logoutWithRedirect(RedirectLogoutOptions options);
 }
 
