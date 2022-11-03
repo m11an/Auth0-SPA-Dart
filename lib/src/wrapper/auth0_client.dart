@@ -58,7 +58,8 @@ class Auth0Client {
   }
 
   Future<void> lgout({String redirectUri = ''}) async {
-    return await promiseToFuture(_client.logout());
+    return await promiseToFuture(
+        _client.logout(interop.RedirectLogoutOptions(redirectTo: redirectUri)));
   }
 
   Future<void> getUser() async {
