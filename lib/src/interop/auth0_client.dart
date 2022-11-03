@@ -3,6 +3,8 @@
 @JS()
 library auth0_spa;
 
+import 'dart:html';
+
 import 'package:js/js.dart';
 
 @JS('Auth0Client')
@@ -19,6 +21,7 @@ class Auth0Client {
   external isAuthenticated();
   external loginWithPopup(LoginWithPopupOptions options);
   external loginWithRedirect(RedirectLoginOptions options);
+  external logout();
   external logoutWithRedirect(RedirectLogoutOptions options);
 }
 
@@ -46,8 +49,8 @@ class RedirectLoginOptions {
 @JS()
 @anonymous
 class RedirectLogoutOptions {
-  external factory RedirectLogoutOptions({String returnTo});
-  external String get returnTo;
+  external factory RedirectLogoutOptions({String redirect_uri});
+  external String get redirect_uri;
 }
 
 @JS()
