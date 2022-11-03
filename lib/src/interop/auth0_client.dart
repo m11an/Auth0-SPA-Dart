@@ -22,6 +22,7 @@ class Auth0Client {
   external loginWithPopup(LoginWithPopupOptions options);
   external loginWithRedirect(RedirectLoginOptions options);
   external logout();
+  external logoutWithRedirect(RedirectLogoutOptions options);
 }
 
 @JS()
@@ -42,6 +43,13 @@ class Auth0ClientOptions {
 @anonymous
 class RedirectLoginOptions {
   external factory RedirectLoginOptions({String redirect_uri});
+  external String get redirect_uri;
+}
+
+@JS()
+@anonymous
+class RedirectLogoutOptions {
+  external factory RedirectLogoutOptions({String redirect_uri});
   external String get redirect_uri;
 }
 
